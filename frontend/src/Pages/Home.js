@@ -7,7 +7,7 @@ import "./Home.css";
 const Home = ()=>{
     const [data,setData]= useState([]);
     const loadData = async ()=>{
-        const response = await axios.get("http://localhost:5000/api/get");
+        const response = await axios.get("http://localhost:5000/get/users");
         setData(response.data);
     }
     useEffect(()=>{
@@ -15,25 +15,23 @@ const Home = ()=>{
     },[])
 
     function deleteContact(id){
-        if(window.confirm("Are you sure that you wanted to delete that contact?")){
-            axios.delete(`http://localhost:5000/api/remove/${id}`);
-            toast.success("contact deleted successfully!");
+        if(window.confirm("Are you sure that you wanted to delete that user?")){
+            axios.delete(`http://localhost:5000/delete/user/${id}`);
+            toast.success("User deleted successfully!");
             setTimeout(() => loadData(), 500);
         }
     }
 
     return (
         <div style={{marginTop:"150px"}}>
-            <Link to="/addContact">
-                <button className="btn btn-contact">Add Contact</button>
+            <Link to="/addUser">
+                <button className="btn btn-contact">Add User</button>
             </Link>
             <table className="styled-table">
                 <thead>
                     <tr>
                         <th style={{textAlign:"center"}}>ID</th>
                         <th style={{textAlign:"center"}}>Name</th>
-                        <th style={{textAlign:"center"}}>Email</th>
-                        <th style={{textAlign:"center"}}>Contact</th>
                         <th style={{textAlign:"center"}}>Action</th>
                     </tr>
                 </thead>
@@ -41,10 +39,8 @@ const Home = ()=>{
                         {data.map((item,index)=>{
                             return (
                                 <tr key={index}>
-                                    <th scope="row">{index+1}</th>
+                                    <td scope="row">{item.id}</td>
                                     <td>{item.name}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.contact}</td>
                                     <td>
                                         <Link to={`/update/${item.id}`}>
                                             <button className="btn btn-edit">Edit</button>
