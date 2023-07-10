@@ -66,7 +66,9 @@ app.put("/put/users/:id",(req,res)=>{
 
 //Home Route
 app.get("/",(req,res)=>{
-    res.send("Welcome to Backend Service for User Mangement System 👨‍💻.\n Use routes for action 💨")
+    const message= "<div style='width:50%;margin:auto; text-align:center;'><h1>Welcome to Backend Service for User Mangement System 👨‍💻.</h1><h2>Use routes for action 💨</h2></div>"
+    const m2="Welcome to Backend Service for User Mangement System 👨‍💻.\n Use routes for action 💨"
+    res.send(message);
 })
 
 //listen app
