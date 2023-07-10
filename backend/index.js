@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const bodyparser = require("body-parser");
 const cors=require("cors");
-const dbConnection = require("./db");
+const dbConnection = require("./database/db.js");
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyparser.urlencoded({extended:true}))
 
-//insert to db - endpoint
+//insert to DB - endpoint
 app.post("/post/users",(req,res)=>{
     const {name,email,phone}=req.body;
     const sqlInsert="INSERT into  users(name,email,phone) VALUES(?,?,?)";
