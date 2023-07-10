@@ -10,6 +10,8 @@ const initialState = {
     phone:""
 };
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 export default function AddEdit(){
     const [state,setState]= useState(initialState);
     const {name,email,phone}=state;
@@ -17,7 +19,7 @@ export default function AddEdit(){
     const {id}=useParams();
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/get/users/${id}`)
+        axios.get(`${BASE_URL}/get/users/${id}`)
         .then((res)=>{
             setState({...res.data[0]});
         })
@@ -30,7 +32,7 @@ export default function AddEdit(){
         }
         else{
             if(!id){
-                axios.post("http://localhost:5000/post/users",{name,email,phone})
+                axios.post(`${BASE_URL}/post/users`,{name,email,phone})
                 .then(()=>{
                     setState({name:"",email:"",phone:""})
                 })
@@ -40,7 +42,7 @@ export default function AddEdit(){
                 toast.success("User added successfully!");
             }
             else{
-                axios.put(`http://localhost:5000/put/users/${id}`,{name,email,phone})
+                axios.put(`${BASE_URL}/put/users/${id}`,{name,email,phone})
                 .then(()=>{
                     setState({name:"",email:"",phone:""})
                 })

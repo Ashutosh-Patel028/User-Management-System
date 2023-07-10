@@ -4,12 +4,15 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import "./View.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
+
 const View = () => {
     const [user,setUser]=useState({});
     const {id}=useParams();
     
     useEffect(()=>{
-        axios.get(`http://localhost:5000/get/users/${id}`)
+        axios.get(`${BASE_URL}/get/users/${id}`)
         .then((res)=>{
             setUser({...res.data[0]});
         })

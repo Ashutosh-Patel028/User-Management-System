@@ -4,11 +4,13 @@ import { toast } from 'react-toastify';
 import axios from "axios";
 import "./Home.css";
 
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+
 const Home = ()=>{
     const [data,setData]= useState([]);
 
     const loadData = async ()=>{
-        const response = await axios.get("http://localhost:5000/get/users");
+        const response = await axios.get(`${BASE_URL}/get/users`);
         setData(response.data);
     }
     useEffect(()=>{
@@ -17,7 +19,7 @@ const Home = ()=>{
 
     function deleteContact(id){
         if(window.confirm("Are you sure that you wanted to delete that user?")){
-            axios.delete(`http://localhost:5000/delete/users/${id}`);
+            axios.delete(`${BASE_URL}/delete/users/${id}`);
             toast.success("User deleted successfully!");
             setTimeout(() => loadData(), 500);
         }
