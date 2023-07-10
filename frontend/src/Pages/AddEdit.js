@@ -70,11 +70,11 @@ export default function AddEdit(){
         onSubmit={handleSubmit}
         >
             <label htmlFor="name">Name</label>
-            <input type="text" id='name' name='name' placeholder='Your Name.....' value={name || ""} onChange={handleInputChange}/>
+            <input type="text" id='name' name='name' placeholder='Your Name.....' value={name || ""} onChange={handleInputChange} required/>
             <label htmlFor="email">Email</label>
-            <input type="email" id='email' name='email' placeholder='Your Email.....' value={email || ""} onChange={handleInputChange}/>
+            <input type="email" id='email' name='email' placeholder='Your Email.....' value={email || ""} onChange={handleInputChange} required/>
             <label htmlFor="contact">Contact</label>
-            <input type="number" id='phone' name='phone' placeholder='Your Phone No......' value={phone || ""} onChange={handleInputChange}/>
+            <input pattern='\d{10}' type="number" id='phone' name='phone' placeholder='Your Phone No......' value={phone || ""} onChange={handleInputChange} required/>
             <input type="submit" value={id?"Update":"Save"}/>
             <Link to="/">
                 <input type="button" value="Go Back" />

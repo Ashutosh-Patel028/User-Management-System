@@ -35,6 +35,10 @@
     color: #009879;
 }
 
+tbody>tr>:nth-child(1){
+    font-weight: 600;
+}
+
 .btn{
     border:none;
     color: white;
@@ -61,7 +65,7 @@
     color: black;
 }
 
-.btn-contact{
+.btn-User{
     background-color: #e82764;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
