@@ -24,7 +24,7 @@ app.post("/post/users",(req,res)=>{
     })
 })
 
-//delete user from DB - endpoint
+//delete a user from DB - endpoint
 app.delete("/delete/users/:id",(req,res)=>{
     const {id}=req.params;
     const sqlRemove="DELETE FROM  users WHERE id=?";
@@ -53,7 +53,7 @@ app.get("/get/users/:id",(req,res)=>{
     })
 });
 
-//Update user to DB - endpoint
+//Update a user to DB - endpoint
 app.put("/put/users/:id",(req,res)=>{
     const {id}=req.params;
     const {name,email,phone} = req.body;

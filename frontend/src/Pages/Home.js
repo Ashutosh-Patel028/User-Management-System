@@ -6,6 +6,7 @@ import "./Home.css";
 
 const Home = ()=>{
     const [data,setData]= useState([]);
+    
     const loadData = async ()=>{
         const response = await axios.get("http://localhost:5000/get/users");
         setData(response.data);
@@ -16,7 +17,7 @@ const Home = ()=>{
 
     function deleteContact(id){
         if(window.confirm("Are you sure that you wanted to delete that user?")){
-            axios.delete(`http://localhost:5000/delete/user/${id}`);
+            axios.delete(`http://localhost:5000/delete/users/${id}`);
             toast.success("User deleted successfully!");
             setTimeout(() => loadData(), 500);
         }
