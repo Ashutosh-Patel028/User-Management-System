@@ -6,7 +6,7 @@ import "./Home.css";
 
 const Home = ()=>{
     const [data,setData]= useState([]);
-    
+
     const loadData = async ()=>{
         const response = await axios.get("http://localhost:5000/get/users");
         setData(response.data);
@@ -40,7 +40,7 @@ const Home = ()=>{
                         {data.map((item,index)=>{
                             return (
                                 <tr key={index}>
-                                    <td scope="row">{item.id}</td>
+                                    <td>{item.id}</td>
                                     <td>{item.name}</td>
                                     <td>
                                         <Link to={`/update/${item.id}`}>
