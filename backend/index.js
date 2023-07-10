@@ -65,7 +65,7 @@ app.put("/put/users/:id",(req,res)=>{
 })
 
 //Home Route
-app.listen("/",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("Welcome to Backend Service for User Mangement System 👨‍💻.\n Use routes for action 💨")
 })
 
