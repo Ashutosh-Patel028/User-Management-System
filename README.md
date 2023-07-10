@@ -1,0 +1,1 @@
+A basic Full Stack App for User Management System using React.js + Redux + Node.js + MySQL
