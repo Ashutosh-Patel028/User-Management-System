@@ -64,6 +64,11 @@ app.put("/put/users/:id",(req,res)=>{
     })
 })
 
+//Home Route
+app.listen("/",(req,res)=>{
+    res.send("Welcome to Backend Service for User Mangement System 👨‍💻.\n Use routes for action 💨")
+})
+
 //listen app
 app.listen(5000,()=>{
     console.log("server is running on 5000");
